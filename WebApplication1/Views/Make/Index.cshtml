@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication1.Models.Make>
+@{
+    ViewData["Title"] = "Bikes";
+    Layout = "_Layout";
+}
+
+<h2>Bikes</h2>
+<div class="row col-md-8">
+    <div class="col-6">
+        <h2 class="text-info">Makes of vehicle</h2>
+    </div>
+    <div class="col-6">
+        <a class="btn btn-primary">Add New Make </a>
+    </div>
+    <br />
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Name)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayName(item.Name)</td>
+                <td>Edit | Delete </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
