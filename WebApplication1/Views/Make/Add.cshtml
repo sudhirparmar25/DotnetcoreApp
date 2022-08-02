@@ -1,0 +1,16 @@
+﻿@{ 
+    ViewData["Title"] = "Add";
+    Layout = "_Layout";
+}
+
+<h2>Add</h2>
+<head>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Webapp/js/Add.js"></script>
+</head>
+<form action="/Make/Add" method="post">
+    <input type="text" name="Name" id="makeName" class="form-control" /><span id="errorAddMake"></span>
+    <input type="submit" id="btnAddMake" name="Submit" class="btn btn-primary" />
+</form>
+
+
