@@ -69,7 +69,6 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            _context.SaveChanges();
             return View(make);
         }
         [HttpPost]
@@ -77,8 +76,9 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var makedata = _context.Makes.Find(make.Id);
-                _context.Update(makedata);
+                Make makedata = _context.Makes.Find(make.Id);
+                makedata.Name = make.Name;
+               // _context.Update(makedata);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
