@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1.Models.Model>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Model";
+    Layout = "_Layout";
+}
+<div class="row col-md-8">
+    <div class="col-6">
+        <h2 class="text-info">Model of vehicle</h2>
+    </div>
+    <div class="col-6">
+        <a class="btn btn-primary" asp-action="Add">Add New Model </a>
+    </div>
+    <br />
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Make)</th>
+                <th>@Html.DisplayNameFor(m => m.Name)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayName(item.Make.Name)</td>
+                <td>@Html.DisplayName(item.Name)</td>
+                <td class="text-right">
+                    <div class="btn-group" role="group">
+                        <a asp-controller="Model"
+                           asp-action="Update"
+                           asp-route-id="@item.Id" class="btn btn-primary">
+                            Edit
+                        </a>
+                        @*<input type="button" class="btn btn-primary" asp-route-id="@item.Id" asp-action="Update" value="Update" />*@
+                        <form method="post" action="Delete">
+                            <button type="submit" class="btn btn-danger" asp-route-id="@item.Id" asp-action="Delete"
+                                    onclick="if (!confirm('Are you sure you want to delete this make?')) { return false }">
+                                Delete
+                            </button>
+                        </form>
+
+                    </div>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -12,6 +12,7 @@
 </head>
 
 <form action="/Make/Update" method="post">
+    <input type="text" name="Id" id="Id" class="form-control" value="@Model.Id" readonly/>
     <input type="text" name="Name" id="makeName" class="form-control" asp-route-id="@Model.Id" value="@Model.Name"/><span id="errorUpdateMake"></span>
     <input type="submit" id="btnUpdateMake" name="Submit" class="btn btn-primary" />
 </form>
